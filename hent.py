@@ -27,6 +27,16 @@ x     ''.....
   c,
     '..
 """,
+    'Fedora': r"""      ......
+   .....'cdxx;.
+ ......:NNxll::,.
+.......kMo...':;..
+..',cO0NMX0O::;'..
+.;:,';:OMx:;''....
+.::'..'KMc.......
+.';dXXWKl......
+ ...',......
+""",
     'Void Linux': r"""     ..',;;,'..
      .,'....';;;'.
  ,c.          .,;;.
@@ -62,6 +72,7 @@ o'......cddc.
 DISTROS_COLOR = {
     'Arch Linux': '\x1b[34m',
     'Debian GNU/Linux': '\x1b[31m',
+    'Fedora': '\x1b[34m',
     'Void Linux': '\x1b[32m',
     'Gentoo': '\x1b[35m',
     'Generic': '\x1b[33m',
