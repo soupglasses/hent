@@ -7,7 +7,7 @@ import subprocess
 import os
 
 DISTROS_ART = {
-    'Arch Linux': r"""        ..
+    'arch': r"""        ..
         cc
        :ooc
       ::lool
@@ -17,7 +17,7 @@ DISTROS_ART = {
  ;l;'..     .';l;
 ..              .'
 """,
-    'Debian GNU/Linux': r"""     ,c;;'
+    'debian': r"""     ,c;;'
   'odl,'',cdl.
 .o:.        :k.
 x.    ..     x.
@@ -27,7 +27,7 @@ x     ''.....
   c,
     '..
 """,
-    'Fedora': r"""      ......
+    'fedora': r"""      ......
    .....'cdxx;.
  ......:NNxll::,.
 .......kMo...':;..
@@ -37,7 +37,7 @@ x     ''.....
 .';dXXWKl......
  ...',......
 """,
-    'Void Linux': r"""     ..',;;,'..
+    'void': r"""     ..',;;,'..
      .,'....';;;'.
  ,c.          .,;;.
 .oo:   .',,'.   ';;.
@@ -47,7 +47,7 @@ x     ''.....
   .;lol;,'',;:.
      .,;:cc:;,.
 """,
-    'Gentoo': r"""    ,:ccl:
+    'gentoo': r"""    ,:ccl:
   .,,...'..;;,
 ';....kxlx;..:c.
  cll;..:;:.....oc
@@ -57,7 +57,7 @@ o'......cddc.
 ,dlllllc'
   ....
 """,
-    'Generic': r"""     cOKxc
+    'linux': r"""     cOKxc
     .0K0kWc
     .x,':Nd
    .l... ,Wk.
@@ -70,12 +70,12 @@ o'......cddc.
 }
 
 DISTROS_COLOR = {
-    'Arch Linux': '\x1b[34m',
-    'Debian GNU/Linux': '\x1b[31m',
-    'Fedora': '\x1b[34m',
-    'Void Linux': '\x1b[32m',
-    'Gentoo': '\x1b[35m',
-    'Generic': '\x1b[33m',
+    'arch': '\x1b[34m',
+    'debian': '\x1b[31m',
+    'fedora': '\x1b[34m',
+    'void': '\x1b[32m',
+    'gentoo': '\x1b[35m',
+    'linux': '\x1b[33m',
 }
 
 CPU_BLACKLIST = [
@@ -200,14 +200,14 @@ if __name__ == '__main__':
     if args.distro:
         distro = args.distro
     else:
-        distro = os_release()['NAME']
+        distro = os_release()['ID']
 
     if distro in DISTROS_ART:
         art = DISTROS_ART[distro].splitlines()
         color = DISTROS_COLOR[distro]
     else:
-        art = DISTROS_ART['Generic'].splitlines()
-        color = DISTROS_COLOR['Generic']
+        art = DISTROS_ART['linux'].splitlines()
+        color = DISTROS_COLOR['linux']
 
     reset = '\x1b[0m'
 
