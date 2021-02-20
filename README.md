@@ -17,11 +17,12 @@ $ ./hent.py
 ```
 ```
 $ ./hent.py --help
-usage: hent.py [-h] [--distro DISTRO]
+usage: hent.py [-h] [--distro distro] [--color true/false]
 
 Neofetch inspired fetch tool built in python.
 
 optional arguments:
-  -h, --help       show this help message and exit
-  --distro DISTRO  which ascii art to use
+  -h, --help          show this help message and exit
+  --distro distro     which ascii art to use
+  --color true/false  enable/disable colored output
 ```

@@ -176,8 +176,12 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Neofetch inspired fetch tool built in python.'
     )
-    parser.add_argument('--distro', choices=DISTROS_ART, metavar='DISTRO',
+    parser.add_argument('--distro', choices=DISTROS_ART,
+                        metavar='distro',
                         help='which ascii art to use')
+    parser.add_argument('--color', choices=['true', 'false'],
+                        metavar='true/false',
+                        help='enable/disable colored output')
 
     args = parser.parse_args()
     if args.distro:
@@ -193,6 +197,9 @@ if __name__ == '__main__':
         color = DISTROS_COLOR['Generic']
 
     reset = '\x1b[0m'
+
+    if args.color == 'no':
+        color, reset = '', ''
 
     text_max_len = len(max(data)) + 2
     art_max_len = max(len(line) for line in art) + 1
