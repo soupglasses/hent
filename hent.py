@@ -211,7 +211,7 @@ if __name__ == '__main__':
 
     reset = '\x1b[0m'
 
-    if args.color == 'no':
+    if args.color == 'false':
         color, reset = '', ''
 
     text_max_len = len(max(data)) + 2
