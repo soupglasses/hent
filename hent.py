@@ -78,8 +78,9 @@ CPU_BLACKLIST = [
 PKGS = {
     'pacman': ['pacman', '-Qq'],
     'rpm': ['rpm', '-qa'],
-    'flatpak': ['flatpak', 'list'],
     'dpkg': ['dpkg', '--list'],
+    'flatpak': ['flatpak', 'list'],
+    'snap': ['snap', 'list'],
 }
 
 
