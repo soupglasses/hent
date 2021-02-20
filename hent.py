@@ -126,7 +126,7 @@ def cpu_info():
     return cpu
 
 
-def ram_info():
+def ram():
     with open('/proc/meminfo') as f:
         meminfo = dict(line.replace(' ', '').split(':')
                        for line in f.read().splitlines()[:5])
@@ -144,7 +144,7 @@ def ram_info():
         return f"{int(used/1024)}MB / {int(total/1024)}MB"
 
 
-def gpu_info():
+def gpu():
     cmd = subprocess.run(['lspci'], capture_output=True)
     stdout = cmd.stdout.decode('ascii')
 
@@ -155,7 +155,8 @@ def gpu_info():
             else:
                 return line.split('VGA compatible controller: ')[1]
 
-def term_info():
+
+def term():
     return os.environ['TERM']
 
 
@@ -165,10 +166,10 @@ data = {
     'Uptime': uptime(),
     'Packages': count_pkgs(),
     'Shell': shell(),
-    'Terminal': term_info(),
+    'Terminal': term(),
     'CPU': cpu_info(),
-    'GPU': gpu_info(),
-    'Memory': ram_info(),
+    'GPU': gpu(),
+    'Memory': ram(),
 }
 
 
@@ -204,7 +205,7 @@ if __name__ == '__main__':
     text_max_len = len(max(data)) + 2
     art_max_len = max(len(line) for line in art) + 1
 
-    for art_line, (category, value) in zip_longest(art, data.items(), fillvalue=''):
+    for art_line, (key, val) in zip_longest(art, data.items(), fillvalue=''):
         print(f'{color} {art_line.ljust(art_max_len, " ")} {reset}',
-              f'{color}{category.rjust(text_max_len, " ")}:{reset}',
-              value)
+              f'{color}{key.rjust(text_max_len, " ")}:{reset}',
+              val)
