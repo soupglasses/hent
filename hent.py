@@ -156,7 +156,7 @@ def ram():
         buffers = meminfo['Buffers']
         used = total_used - (cache + buffers)
 
-        return f"{int(used/1024)}MB / {int(total/1024)}MB"
+        return f"{int(used/1000)}MB / {int(total/1000)}MB"
 
 
 def gpu():
