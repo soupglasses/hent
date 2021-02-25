@@ -84,6 +84,9 @@ CPU_BLACKLIST = [
     '6-Core Processor',
     '8-Core Processor',
     '12-Core Processor',
+    'Six-Core Processor',
+    'Eight-Core Processor',
+    'Twelve-Core Processor',
 ]
 
 PKGS = {
@@ -102,7 +105,7 @@ def os_release() -> dict:
 
 
 def distro():
-    return f"{os_release()['NAME']} {platform.machine()}"
+    return f"{os_release()['PRETTY_NAME']}"
 
 
 def uptime():
