@@ -80,7 +80,8 @@ DISTROS_COLOR = {
 }
 
 CPU_BLACKLIST = [
-    '(R) Core(TM)',
+    '(R)',
+    '(TM)',
     'CPU',
     '6-Core Processor',
     '8-Core Processor',
@@ -99,7 +100,7 @@ PKGS = {
 }
 
 TERM_NAMES = {
-    'Hyper': 'Hyper Terminal',
+    'hyper': 'Hyper Terminal',
     'gnome-terminal': 'GNOME Terminal',
     'urxvt': 'urxvt',
     'kitty': 'kitty',
