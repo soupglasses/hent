@@ -80,7 +80,7 @@ DISTROS_COLOR = {
 }
 
 CPU_BLACKLIST = [
-    'Intel(R) Core(TM)',
+    '(R) Core(TM)',
     'CPU',
     '6-Core Processor',
     '8-Core Processor',
