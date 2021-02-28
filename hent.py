@@ -5,6 +5,7 @@ from itertools import zip_longest
 import platform
 import subprocess
 import os
+import psutil
 
 DISTROS_ART = {
     'arch': r"""        ..
@@ -97,6 +98,14 @@ PKGS = {
     'snap': ['snap', 'list'],
 }
 
+TERM_NAMES = {
+    'Hyper': 'Hyper Terminal',
+    'gnome-terminal': 'GNOME Terminal',
+    'urxvt': 'urxvt',
+    'kitty': 'kitty',
+    'nvim': 'Neovim Terminal',
+    'NeoVimServer': 'VimR Terminal',
+}
 
 def os_release() -> dict:
     with open('/etc/os-release') as f:
@@ -172,7 +181,15 @@ def gpu():
 
 
 def term():
-    return os.environ['TERM']
+    for ppid in psutil.Process().parents():
+        name = ppid.name()
+        if name in ['screen', 'tmux', 'sshd', os.environ['TERM']]:
+            term = name
+
+        for term_name, term_pretty_name in TERM_NAMES.items():
+            if term_name in name:
+                term = term_pretty_name
+    return term
 
 
 data = {
