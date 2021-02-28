@@ -5,15 +5,15 @@ Neofetch alternative built in python
 ## Usage:
 ```
 $ ./hent.py
-         ..             Distro: Arch Linux x86_64
+         ..             Distro: Arch Linux
          cc             Kernel: 5.10.16-zen1-1-zen
-        :ooc            Uptime: 8 hours, 58 minutes
-       ::lool         Packages: 1867 (pacman), 36 (flatpak)
+        :ooc            Uptime: 3 hours, 45 minutes
+       ::lool         Packages: 1864 (pacman), 38 (flatpak)
      .looooool.          Shell: bash
-    .loo;..;ooo.      Terminal: xterm-kitty
-   'oooo    looc.          CPU: i7-4790K @ 4.00GHz
+    .loo;..;ooo.      Terminal: kitty
+   'oooo    looc.          CPU: Intel i7-4790K @ 4.00GHz
   ;l;'..     .';l;         GPU: GeForce RTX 2060 Rev. A
- ..              .'     Memory: 6936MB / 24562MB
+ ..              .'     Memory: 6325MB / 24562MB
 ```
 ```
 $ ./hent.py --help
