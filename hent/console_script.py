@@ -141,7 +141,7 @@ def shell():
 def cpu_info():
     with open('/proc/cpuinfo') as f:
         cpu = next(line for line in f if line.startswith('model name'))
-    cpu = cpu.split(':', 1)[1][1:-1]
+    cpu = cpu[cpu.index(':') + 2: -1]
 
     for bad_word in CPU_BLACKLIST:
         cpu = cpu.replace(bad_word, '')
