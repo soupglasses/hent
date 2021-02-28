@@ -205,7 +205,7 @@ data = {
 }
 
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser(
         description='Neofetch inspired fetch tool built in python.'
     )

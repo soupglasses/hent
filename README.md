@@ -26,3 +26,19 @@ optional arguments:
   --distro distro     which ascii art to use
   --color true/false  enable/disable colored output
 ```
+
+## Installation:
+
+### With pip:
+```
+pip3 install hent
+```
+
+### With git:
+```
+git clone https://gitlab.com/imsofi/hent
+cd hent
+pip3 install --upgrade build
+python3 -m build
+pip3 install dist/*.whl
+```
