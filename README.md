@@ -4,7 +4,7 @@ Neofetch alternative built in python
 
 ## Usage:
 ```
-$ ./hent.py
+$ hent
          ..             Distro: Arch Linux
          cc             Kernel: 5.10.16-zen1-1-zen
         :ooc            Uptime: 3 hours, 45 minutes
@@ -16,8 +16,8 @@ $ ./hent.py
  ..              .'     Memory: 6325MB / 24562MB
 ```
 ```
-$ ./hent.py --help
-usage: hent.py [-h] [--distro distro] [--color true/false]
+$ hent --help
+usage: hent [-h] [--distro distro] [--color true/false]
 
 Neofetch inspired fetch tool built in python.
 
