@@ -182,9 +182,9 @@ def gpu():
 
 
 def term():
+    term = 'unknown'
     for ppid in psutil.Process().parents():
         name = ppid.name()
-        term = 'unknown'
         if name in ['screen', 'tmux', 'conmon', 'sshd', os.environ['TERM']]:
             term = name
 
