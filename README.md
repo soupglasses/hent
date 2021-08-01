@@ -36,7 +36,7 @@ pip3 install hent
 
 ### With git:
 ```
-git clone https://gitlab.com/imsofi/hent
+git clone https://git.sr.ht/~sofi/hent
 cd hent
 pip3 install --upgrade build
 python3 -m build
