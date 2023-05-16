@@ -170,7 +170,7 @@ def ram():
 
 
 def gpu():
-    cmd = subprocess.run(['lspci'], capture_output=True, env={"LANG": "C"})
+    cmd = subprocess.run(['lspci'], capture_output=True)
     stdout = cmd.stdout.decode('ascii')
 
     for line in stdout.splitlines():
