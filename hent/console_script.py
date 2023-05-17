@@ -108,6 +108,9 @@ TERM_NAMES = {
     'NeoVimServer': 'VimR Terminal',
 }
 
+ENVIRONMENT = os.environ.copy()
+ENVIRONMENT["LANG"] = "C" # Standardize subprocess calls to English.
+
 def os_release() -> dict:
     with open('/etc/os-release') as f:
         return dict(line.replace('"', '').split('=', 1)
@@ -119,7 +122,7 @@ def distro():
 
 
 def uptime():
-    cmd = subprocess.run(['uptime', '--pretty'], capture_output=True, env={"LANG": "C"})
+    cmd = subprocess.run(['uptime', '--pretty'], capture_output=True, env=ENVIRONMENT)
     return cmd.stdout.decode('ascii')[3:-1]
 
 
@@ -127,7 +130,7 @@ def count_pkgs():
     output = {}
     for manager, command in PKGS.items():
         try:
-            cmd = subprocess.run(command, capture_output=True, env={"LANG": "C"})
+            cmd = subprocess.run(command, capture_output=True, env=ENVIRONMENT)
             output[manager] = cmd.stdout.decode('ascii').count('\n')
         except FileNotFoundError:
             pass
@@ -170,7 +173,7 @@ def ram():
 
 
 def gpu():
-    cmd = subprocess.run(['lspci'], capture_output=True)
+    cmd = subprocess.run(['lspci'], capture_output=True, env=ENVIRONMENT)
     stdout = cmd.stdout.decode('ascii')
 
     for line in stdout.splitlines():
