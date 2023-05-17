@@ -125,10 +125,14 @@ def distro():
 
 
 def uptime():
-    with open('/proc/uptime') as f:
-        uptime = f.read()
-    seconds = int(uptime.split(".", 1)[0])
-    return str(datetime.timedelta(seconds=seconds))
+    try:
+        cmd = subprocess.run(['uptime', '--pretty'], capture_output=True, env=ENVIRONMENT, check=True)
+        return cmd.stdout.decode('ascii')[3:-1]
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        with open('/proc/uptime') as f:
+            uptime = f.read()
+        seconds = int(uptime.split(".", 1)[0])
+        return str(datetime.timedelta(seconds=seconds))
 
 
 def count_pkgs():
