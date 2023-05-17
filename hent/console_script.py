@@ -135,9 +135,9 @@ def count_pkgs():
     output = {}
     for manager, command in PKGS.items():
         try:
-            cmd = subprocess.run(command, capture_output=True, env=ENVIRONMENT)
+            cmd = subprocess.run(command, capture_output=True, env=ENVIRONMENT, check=True)
             output[manager] = cmd.stdout.decode('ascii').count('\n')
-        except FileNotFoundError:
+        except (FileNotFoundError, subprocess.CalledProcessError):
             pass
     return ', '.join(f"{count} ({manager})"
                      for manager, count in output.items())
