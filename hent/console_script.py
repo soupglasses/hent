@@ -119,7 +119,7 @@ def distro():
 
 
 def uptime():
-    cmd = subprocess.run(['uptime', '--pretty'], capture_output=True)
+    cmd = subprocess.run(['uptime', '--pretty'], capture_output=True, env={"LANG": "C"})
     return cmd.stdout.decode('ascii')[3:-1]
 
 
@@ -127,7 +127,7 @@ def count_pkgs():
     output = {}
     for manager, command in PKGS.items():
         try:
-            cmd = subprocess.run(command, capture_output=True)
+            cmd = subprocess.run(command, capture_output=True, env={"LANG": "C"})
             output[manager] = cmd.stdout.decode('ascii').count('\n')
         except FileNotFoundError:
             pass
