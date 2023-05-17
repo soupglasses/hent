@@ -42,3 +42,11 @@ pip3 install --upgrade build
 python3 -m build
 pip3 install dist/*.whl
 ```
+
+## Development
+
+```
+python3 -m venv .venv
+source .venv/bin/activate
+pip3 install -r requirements.txt
+```
