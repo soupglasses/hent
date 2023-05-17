@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import datetime
 from itertools import zip_longest
 import platform
 import subprocess
@@ -122,8 +123,10 @@ def distro():
 
 
 def uptime():
-    cmd = subprocess.run(['uptime', '--pretty'], capture_output=True, env=ENVIRONMENT)
-    return cmd.stdout.decode('ascii')[3:-1]
+    with open('/proc/uptime') as f:
+        uptime = f.read()
+    seconds = int(uptime.split(".", 1)[0])
+    return str(datetime.timedelta(seconds=seconds))
 
 
 def count_pkgs():
