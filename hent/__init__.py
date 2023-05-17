@@ -1,3 +1,3 @@
-from .console_script import main
+from hent.console_script import main
 
 __all__ = ['main']
