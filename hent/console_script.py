@@ -98,6 +98,8 @@ PKGS = {
     'dpkg': ['dpkg', '--list'],
     'flatpak': ['flatpak', 'list'],
     'snap': ['snap', 'list'],
+    'nix-system': ['nix-store', '-qR', '/run/current-system/sw'],
+    'nix-user': ['nix-store', '-qR', os.path.expanduser('~/.nix-profile')],
 }
 
 TERM_NAMES = {
